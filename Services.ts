@@ -20,7 +20,7 @@ export const SERVICES: Service[] = [
     icon: Brain,
     title: 'Mémoire & Organisation',
     accent: 'from-bleu-profond to-bleu-clair',
-    items: [a
+    items: [
       'Retenir tout — idées, décisions, échanges, projets',
       'Classer et ranger — retrouver facilement ce qui a été dit',
       'Résumer — condenser ce qui est long en points clés',

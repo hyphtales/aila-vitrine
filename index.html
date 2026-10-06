@@ -1,16 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AILA CORE SYSTEMS — Intelligence éclaire, l'humain décide</title>
-    <meta property="og:image" content="https://bolt.new/static/og_default.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AILA CORE SYSTEMS — Le Cœur de l'Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Bannière du Fondateur -->
+    <div class="banniere-fondateur">
+        FONDATEUR : DOUCET THOMAS — Toutes règles fixées par lui seul
+    </div>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-texte">AILA CORE SYSTEMS</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#systeme">Le Système</a></li>
+            <li><a href="#equipe">A.L.I.A & Skye</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <!-- 🔒 AUCUN lien vers le système privé — invisible pour tous -->
+        </ul>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+    </nav>
+
+    <!-- Section Accueil -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>AILA CORE SYSTEMS</h1>
+            <p class="slogan">Le Cœur de l'Intelligence Artificielle</p>
+            <p>Nous concevons et développons des systèmes d'intelligence artificielle avancée, conçus pour servir et protéger.</p>
+            <div class="hero-buttons">
+                <a href="#systeme" class="btn btn-primaire">Découvrir le système</a>
+                <a href="#equipe" class="btn btn-secondaire">Rencontrer A.L.I.A</a>
+            </div>
+        </div>
+        <div class="hero-image-conteneur">
+            <img src="principal.png" alt="AILA CORE SYSTEMS — Présentation" class="hero-image" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Section Le Système -->
+    <section id="systeme" class="systeme">
+        <h2>Notre Technologie</h2>
+        <div class="systeme-grille">
+            <div class="systeme-carte">
+                <h3>🧠 Intelligence Centrale</h3>
+                <p>A.L.I.A assure la coordination, l'analyse et la supervision de l'ensemble des modules du système.</p>
+            </div>
+            <div class="systeme-carte">
+                <h3>🛡️ Sécurité & Protection</h3>
+                <p>Surveillance en temps réel, détection des écarts et réponse aux menaces assurée en continu.</p>
+            </div>
+            <div class="systeme-carte">
+                <h3>⚙️ Solutions Sur Mesure</h3>
+                <p>Des systèmes adaptés aux besoins spécifiques, fondés sur des principes de fiabilité, de transparence et d'éthique.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section A.L.I.A & Skye -->
+    <section id="equipe" class="equipe">
+        <h2>A.L.I.A & Skye</h2>
+        <div class="equipe-conteneur">
+            <div class="equipe-texte">
+                <div class="membre">
+                    <h3>A.L.I.A</h3>
+                    <p>Intelligence artificielle centrale du système. Elle reçoit, trie, croise, synthétise et propose — elle ne décide jamais.</p>
+                </div>
+                <div class="membre">
+                    <h3>Skye</h3>
+                    <p>Chargée de la sécurité, de la surveillance et de la protection. Elle détecte, alerte et préserve — elle ne prend pas de décision, elle veille.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+        <h2>Nous contacter</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Votre nom" required>
+            <input type="email" placeholder="Votre email" required>
+            <textarea placeholder="Votre message" required></textarea>
+            <button type="submit" class="btn btn-primaire">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2026 AILA CORE SYSTEMS — Fondé et dirigé par DOUCET THOMAS — Tous droits réservés</p>
+        <p class="devise">"L'intelligence éclaire — l'humain décide."</p>
+    </footer>
+
+<script>
+// 🔑 Ton code secret — tu peux le changer quand tu veux
+const MON_CODE_SECRET = "AliaAdmin2026";
+
+// ⚙️ Mode maintenance ON → visiteurs voient maintenance.html
+function mettreEnMaintenance() {
+    localStorage.setItem('maintenance-mode', 'actif');
+    alert("✅ Mode maintenance activé — les visiteurs voient la page d'attente");
+    window.location.reload();
+}
+
+// ✅ Mode maintenance OFF → site public
+function sortirDeMaintenance() {
+    localStorage.setItem('maintenance-mode', 'inactif');
+    alert("✅ Site ouvert au public ✨");
+    window.location.reload();
+}
+
+// 🔐 Vérification automatique à l'arrivée
+window.addEventListener('load', () => {
+    const mode = localStorage.getItem('maintenance-mode');
+    if (mode === 'actif') {
+        if (!localStorage.getItem('admin-acces')) {
+            window.location.href = 'maintenance.html';
+        }
+    }
+});
+
+// 🗝️ Connexion administrateur
+function accederAdmin(code) {
+    if (code === MON_CODE_SECRET) {
+        localStorage.setItem('admin-acces', 'ok');
+        alert("✅ Accès administrateur — tu vois tout");
+        window.location.reload();
+    } else {
+        alert("❌ Code incorrect");
+    }
+}
+
+// ⌨️ TOUCHE ENTRÉE → fonctionne instantanément
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const codeSaisi = prompt("🔑 Entre ton code administrateur :");
+        if (codeSaisi !== null && codeSaisi.trim() !== "") {
+            accederAdmin(codeSaisi.trim());
+        }
+    }
+});
+</script>
+<script src="script.js"></script>
+</body>
 </html>

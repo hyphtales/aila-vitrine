@@ -8,10 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Bannière du Fondateur -->
-    <div class="banniere-fondateur">
-        FONDATEUR : DOUCET THOMAS — Toutes règles fixées par lui seul
-    </div>
+    <!-- ❌ Barre bleue SUPPRIMÉE -->
 
     <!-- Barre de navigation -->
     <nav class="navbar">
@@ -23,12 +20,11 @@
             <li><a href="#systeme">Le Système</a></li>
             <li><a href="#equipe">A.L.I.A & Skye</a></li>
             <li><a href="#contact">Contact</a></li>
-            <!-- 🔒 AUCUN lien vers le système privé — invisible pour tous -->
         </ul>
         <button class="menu-toggle" aria-label="Menu">☰</button>
     </nav>
 
-    <!-- Section Accueil -->
+    <!-- Section Accueil — Image en grand → pleine largeur -->
     <section id="accueil" class="hero">
         <div class="hero-content">
             <h1>AILA CORE SYSTEMS</h1>
@@ -40,7 +36,7 @@
             </div>
         </div>
         <div class="hero-image-conteneur">
-            <img src="principal.png" alt="AILA CORE SYSTEMS — Présentation" class="hero-image" loading="lazy">
+            <img src="principal.png" alt="AILA CORE SYSTEMS" class="hero-image" loading="lazy">
         </div>
     </section>
 
@@ -98,52 +94,42 @@
     </footer>
 
 <script>
-// 🔑 Ton code secret — tu peux le changer quand tu veux
 const MON_CODE_SECRET = "AliaAdmin2026";
 
-// ⚙️ Mode maintenance ON → visiteurs voient maintenance.html
 function mettreEnMaintenance() {
     localStorage.setItem('maintenance-mode', 'actif');
-    alert("✅ Mode maintenance activé — les visiteurs voient la page d'attente");
+    alert("✅ Mode maintenance activé");
     window.location.reload();
 }
 
-// ✅ Mode maintenance OFF → site public
 function sortirDeMaintenance() {
     localStorage.setItem('maintenance-mode', 'inactif');
     alert("✅ Site ouvert au public ✨");
     window.location.reload();
 }
 
-// 🔐 Vérification automatique à l'arrivée
 window.addEventListener('load', () => {
     const mode = localStorage.getItem('maintenance-mode');
-    if (mode === 'actif') {
-        if (!localStorage.getItem('admin-acces')) {
-            window.location.href = 'maintenance.html';
-        }
+    if (mode === 'actif' && !localStorage.getItem('admin-acces')) {
+        window.location.href = 'maintenance.html';
     }
 });
 
-// 🗝️ Connexion administrateur
 function accederAdmin(code) {
     if (code === MON_CODE_SECRET) {
         localStorage.setItem('admin-acces', 'ok');
-        alert("✅ Accès administrateur — tu vois tout");
+        alert("✅ Accès administrateur");
         window.location.reload();
     } else {
         alert("❌ Code incorrect");
     }
 }
 
-// ⌨️ TOUCHE ENTRÉE → fonctionne instantanément
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
         e.preventDefault();
-        const codeSaisi = prompt("🔑 Entre ton code administrateur :");
-        if (codeSaisi !== null && codeSaisi.trim() !== "") {
-            accederAdmin(codeSaisi.trim());
-        }
+        const code = prompt("🔑 Entre ton code administrateur :");
+        if (code) accederAdmin(code.trim());
     }
 });
 </script>

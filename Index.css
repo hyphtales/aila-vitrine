@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-sombre antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-bleu-profond text-center mb-4;
+  }
+
+  .section-title-line {
+    @apply block w-20 h-1 bg-dore mx-auto mt-4 rounded-full;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-br from-bleu-profond to-bleu-moyen
+           shadow-lg shadow-bleu-profond/30 transition-all duration-300
+           hover:shadow-xl hover:shadow-bleu-profond/40 hover:-translate-y-0.5
+           active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3.5 rounded-xl font-semibold text-dore bg-white border-2 border-dore
+           transition-all duration-300
+           hover:bg-dore hover:text-bleu-profond hover:-translate-y-0.5
+           active:translate-y-0;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/60 rounded-2xl
+           transition-all duration-500;
+  }
+}
